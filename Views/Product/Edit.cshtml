@@ -1,0 +1,35 @@
+﻿@using ITWorxCouurse.DAL.Entiities;
+@model Products
+@{
+    var Categories = new SelectList(ViewBag.Category,"Id","Name");
+}
+<h1>Edit</h1>
+
+<form asp-action="Edit">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Quantity"></label>
+        <input asp-for="Quantity" class="form-control" />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div>
+
+        <label class="col-form-label" asp-for="Category"></label>
+        <select class="form-control" asp-items="Categories" asp-for="CategoryId">
+            <option Value="@null">--Select Category--</option>
+        </select>
+    </div>
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-light">Back to List</a>
+</form>

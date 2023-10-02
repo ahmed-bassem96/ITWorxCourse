@@ -1,0 +1,56 @@
+﻿@using ITWorxCourse.DAL.Entiities;
+@using ITWorxCouurse.DAL.Entiities;
+@model Products
+@{
+    @* SelectList categories = ViewBag.Category != null
+           ? new SelectList(ViewBag.Category, "Id", "Name")
+           : new SelectList(new List<Category>(), "Id", "Name");*@
+
+    var Categories = new SelectList(ViewBag.Category, "Id", "Name");
+}
+
+<h1>Create New Employee</h1>
+<br />
+<form asp-action="Add">
+
+
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Quantity"></label>
+        <input asp-for="Quantity" class="form-control" />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>  
+  @*
+    <div class="form-group">
+    <label class="col-form-label" asp-for="CategoryId"></label>
+    <input asp-for="CategoryId" class="form-control" />
+    <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+  *@  
+    <div>
+  
+        <label class="col-form-label" asp-for="Category"></label>
+        <select class="form-control" asp-items="Categories" asp-for="CategoryId">
+        <option Value="@null">--Select Department--</option>
+    
+    </select>
+
+    </div>
+    
+    <input type="submit" value="Submit" class="btn btn-primary" />
+
+
+
+</form>
+
